@@ -8,11 +8,12 @@
         <welcome-file>/index.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
-        <servlet-name>blue-team</servlet-name>
+        <servlet-name>get-data</servlet-name>
         <servlet-class>servlet.GetDataServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>blue-team</servlet-name>
-        <url-pattern>/blue/*</url-pattern>
+        <servlet-name>get-data</servlet-name>
+        <url-pattern>/temperature/*</url-pattern>
+        <url-pattern>/humidity/*</url-pattern>
     </servlet-mapping>
 </web-app>

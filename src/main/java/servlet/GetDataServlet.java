@@ -30,22 +30,22 @@ public class GetDataServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Returns the value of a request parameter as a String,
         // or null if the parameter does not exist.
-        String table = request.getParameter("type");
         String strDate = request.getParameter("start");
         String endDate = request.getParameter("end");
 
-        if (table == null || strDate == null || endDate == null) {
-            sendMessage("Please specify data type, start date and end date", response);
+        if (strDate == null || endDate == null) {
+            sendMessage("Please specify start and end date", response);
             return;
         }
 
         String sql;
+        String urlPattern = request.getServletPath();
         //  the == operator returns false because str1 and str2 are different objects in memory, even though they have the same value.
         //  The .equals() method, returns true because it compares the contents of the objects.
-        if (table.equals("temperature") || table.equals("humidity")) {
-            sql = "select * from " + table + " where (date <= '" + endDate + "' AND date >= '" + strDate + "')";
+        if (urlPattern.equals("/temperature") || urlPattern.equals("/humidity")) {
+            sql = "select * from " + urlPattern.substring(1) + " where (date <= '" + endDate + "' AND date >= '" + strDate + "')";
         } else {
-            sendMessage("Wrong type of data, humidity or temperature?", response);
+            sendMessage("the request format should like: localhost:8080/temperature?&start=date&end=date", response);
             return;
         }
 
