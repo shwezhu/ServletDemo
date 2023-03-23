@@ -40,7 +40,7 @@ public class GetDataServlet extends HttpServlet {
 
         String sql;
         String urlPattern = request.getServletPath();
-        //  the == operator returns false because str1 and str2 are different objects in memory, even though they have the same value.
+        //  The == operator returns false because str1 and str2 are different objects in memory, even though they have the same value.
         //  The .equals() method, returns true because it compares the contents of the objects.
         if (urlPattern.equals("/temperature") || urlPattern.equals("/humidity")) {
             sql = "select * from " + urlPattern.substring(1) + " where (date <= '" + endDate + "' AND date >= '" + strDate + "')";

@@ -4,7 +4,7 @@
 Don't forget to create two tables named `temperature` and `humidity`, or you can use other table if you like, but you need to make some change in the method of `doGet()` of `GetDataServlet`, to make sure generate the correct sql statement. 
 
 ```java
-sql = "select * from " + your table + " where (date <= '" + endDate + "' AND date >= '" + strDate + "')";
+sql = "select * from " + yourtable + " where (date <= '" + endDate + "' AND date >= '" + strDate + "')";
 ```
 
 I use MySQL in this demo, you can add other database by implement the `Database` interface.
