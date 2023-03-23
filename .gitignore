@@ -1,0 +1,13 @@
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# Mac OS
+.DS_Store
